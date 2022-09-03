@@ -76,6 +76,7 @@ pub fn main() {
         StdRand::with_seed(current_nanos()),
         // Corpus that will be evolved, we keep it in memory for performance
         InMemoryCorpus::new(),
+        // OnDiskCorpus::new(PathBuf::from("./corpus")).unwrap(),
         // Corpus in which we store solutions (crashes in this example),
         // on disk so the user can get them after stopping the fuzzer
         OnDiskCorpus::new(PathBuf::from("./crashes")).unwrap(),

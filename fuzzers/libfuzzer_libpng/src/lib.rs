@@ -38,7 +38,7 @@ use libafl::{
 use libafl_targets::{libfuzzer_initialize, libfuzzer_test_one_input, EDGES_MAP, MAX_EDGES_NUM};
 
 /// The main fn, `no_mangle` as it is a C main
-#[cfg(not(test))]
+// #[cfg(not(test))]
 #[no_mangle]
 pub fn libafl_main() {
     // Registry the metadata types used in this fuzzer
@@ -58,7 +58,7 @@ pub fn libafl_main() {
 }
 
 /// The actual fuzzer
-#[cfg(not(test))]
+// #[cfg(not(test))]
 fn fuzz(corpus_dirs: &[PathBuf], objective_dir: PathBuf, broker_port: u16) -> Result<(), Error> {
     // 'While the stats are state, they are usually used in the broker - which is likely never restarted
     let monitor = MultiMonitor::new(|s| println!("{}", s));
